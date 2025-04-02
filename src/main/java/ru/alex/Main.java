@@ -25,9 +25,9 @@ public class Main {
             for (int i = 0; i < 10_000; i++) {
                 String text = generateText("abc", 100_000);
                 try {
-                    queueA.put(i + " строка: " + text);
-                    queueB.put(i + " строка: " + text);
-                    queueC.put(i + " строка: " + text);
+                    queueA.put(i + " " + text);
+                    queueB.put(i + " " + text);
+                    queueC.put(i + " " + text);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     return;
@@ -107,9 +107,9 @@ public class Main {
         bCounterThread.join();
         cCounterThread.join();
 
-        System.out.println("Max 'a' count: " + maxACount + " in string: " + maxAString.substring(0, 100) + "...");
-        System.out.println("Max 'b' count: " + maxBCount + " in string: " + maxBString.substring(0, 100) + "...");
-        System.out.println("Max 'c' count: " + maxCCount + " in string: " + maxCString.substring(0, 100) + "...");
+        System.out.println("Максимальное количество символов 'a' : " + maxACount + " номер строки: " + maxAString.substring(0, 50) + "...");
+        System.out.println("Максимальное количество символов 'b' : " + maxBCount + " номер строки: " + maxBString.substring(0, 50) + "...");
+        System.out.println("Максимальное количество символов 'c' : " + maxCCount + " номер строки: " + maxCString.substring(0, 50) + "...");
     }
 
     public static String generateText(String letters, int length) {
